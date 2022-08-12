@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <script type="text/babel">
+/*class About extends React.Component{
+
+    render(){
+        return <h1>my name is {this.props.name} to {this.props.children}</h1>
+    }
+}*/
+class About extends React.Component{
+    render(){
+        return  (
+            <div>
+        <p>hello</p>
+         {this.props.data.user.name}
+         </div>
+         )
+    }
+}
+
+class Home extends React.Component{
+    
+state={
+    age:25,
+    user:{
+        name:"miral",
+        lastName:"khadhraoui"
+    },
+    country:["tunisia","libya"],
+    x:0,
+}
+change= (e)=>{
+    this.setState({
+        user:{
+            ...this.state.user,
+            name:e.target.value
+        }
+    })
+}
+
+render(){
+    return (
+        <div>
+        <h1>Home page</h1>
+        
+        <About data={this.state}/>
+        <p>{this.state.user.name}</p>
+        <p>{this.state.user.lastName}</p>
+        <input type="text" onChange={this.change} />
+        </div>
+
+    )
+}
+}
+ReactDOM.render(<Home/>,document.querySelector("#app"))
+    </script>
+</body>
+</html>
